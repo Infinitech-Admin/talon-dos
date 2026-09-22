@@ -406,7 +406,7 @@ export default function Home() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <img
-                  src="/images/meeting/1.jpg"
+                  src="/our-team2.jpg"
                   alt="Barangay Talon Dos"
                   className="w-full h-full object-cover"
                 />
