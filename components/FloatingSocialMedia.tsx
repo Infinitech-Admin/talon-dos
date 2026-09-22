@@ -16,6 +16,14 @@ interface SocialLink {
 /**
  * Messenger icon
  * Uses the Messenger-style gradient chat logo.
+ *
+ * Unlike the other platform icons (a plain white glyph sitting on a
+ * separately-colored circular button), this SVG already draws its own
+ * colored chat-bubble background inside its own viewBox. So the button
+ * for Messenger renders with no button background/padding of its own —
+ * the icon is sized up to fill the same overall footprint (48px desktop /
+ * 40px mobile) that the padded, colored buttons occupy, so it still reads
+ * as a full circle instead of a small blob floating in transparent space.
  */
 const MessengerIcon = ({ className = "" }: { className?: string }) => (
   <svg
@@ -124,6 +132,7 @@ export default function FloatingSocialMedia() {
       <div className="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-3">
         {socialLinks.map((social) => {
           const Icon = social.icon;
+          const isMessenger = social.name === "Messenger";
 
           return (
             <a
@@ -136,11 +145,13 @@ export default function FloatingSocialMedia() {
                   }
                 : {})}
               className={`${
-                social.color
-              } text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl group relative`}
+                isMessenger ? "" : social.color
+              } text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl group relative flex items-center justify-center ${
+                isMessenger ? "w-12 h-12" : "p-3"
+              }`}
               aria-label={social.name}
             >
-              <Icon className="w-6 h-6" />
+              <Icon className={isMessenger ? "w-full h-full" : "w-6 h-6"} />
 
               {/* Tooltip */}
               <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -172,6 +183,7 @@ export default function FloatingSocialMedia() {
           <div className="absolute right-0 bottom-full mb-3 flex flex-col gap-2 z-50">
             {socialLinks.map((social, index) => {
               const Icon = social.icon;
+              const isMessenger = social.name === "Messenger";
 
               return (
                 <a
@@ -183,13 +195,17 @@ export default function FloatingSocialMedia() {
                         rel: "noopener noreferrer",
                       }
                     : {})}
-                  className={`${social.color} text-white p-2.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl social-slide-in`}
+                  className={`${
+                    isMessenger ? "" : social.color
+                  } text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl social-slide-in flex items-center justify-center ${
+                    isMessenger ? "w-10 h-10" : "p-2.5"
+                  }`}
                   style={{
                     animationDelay: `${index * 50}ms`,
                   }}
                   aria-label={social.name}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className={isMessenger ? "w-full h-full" : "w-5 h-5"} />
                 </a>
               );
             })}
