@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, Home, Leaf, Award, X, ZoomIn } from "lucide-react";
+import { Users, Home, CalendarDays, Award, X, ZoomIn } from "lucide-react";
 
 export default function AboutSection() {
   const [isImageModalOpen, setIsImageModalOpen] = React.useState(false);
@@ -10,23 +10,23 @@ export default function AboutSection() {
   const stats = [
     {
       icon: Users,
-      number: "18,500+",
+      number: "44,000+",
       label: "Proud Residents",
     },
     {
       icon: Home,
-      number: "4,200+",
+      number: "13,000+",
       label: "Households",
     },
     {
-      icon: Leaf,
-      number: "3",
-      label: "Green Spaces",
+      icon: CalendarDays,
+      number: "1978",
+      label: "Barangay Founded",
     },
     {
       icon: Award,
-      number: "20+",
-      label: "Community Programs",
+      number: "11",
+      label: "Barangay Officials",
     },
   ];
 
@@ -102,10 +102,13 @@ export default function AboutSection() {
             <div className="w-20 h-1.5 bg-[#1e40af] rounded-full mb-6" />
 
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Nestled in the bustling city of Las Piñas, Barangay Talon Dos is a
-              thriving urban community where tradition meets progress. Home to
-              over 18,500 residents, we are a diverse neighborhood united by
-              shared values of cooperation, resilience, and progress.
+              Nestled in the City of Las Piñas, Metro Manila, Barangay Talon
+              Dos was created on April 3, 1978 under Presidential Decree No.
+              1335, formed when the subdivisions of BF Resort, Sta. Cecilia,
+              Sarino, Mother Earth, Camela, and San Beda were detached from
+              the original Barangay Talon. Today it is home to over 44,000
+              residents, making it one of the most populous barangays in the
+              city.
             </p>
 
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -209,7 +212,7 @@ export default function AboutSection() {
               className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent"
             >
               <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Barangay Officials & Staff 2024
+                Barangay Officials & Staff 2023–2026
               </h4>
               <p className="text-white/90 text-lg">
                 Together, building a stronger community for all
@@ -217,7 +220,7 @@ export default function AboutSection() {
             </motion.div>
           </motion.div>
 
-          {/* Optional: Team stats or info below the image */}
+          {/* Team stats reflecting the current (2023-2026) term */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -225,16 +228,16 @@ export default function AboutSection() {
             className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             <div className="text-center p-6 rounded-2xl bg-white shadow-lg border border-slate-100">
-              <div className="text-3xl font-bold text-[#1e40af] mb-2">11+</div>
+              <div className="text-3xl font-bold text-[#1e40af] mb-2">9</div>
               <div className="text-gray-700 font-medium">
-                Barangay Officials
+                Elected Officials
               </div>
             </div>
 
             <div className="text-center p-6 rounded-2xl bg-white shadow-lg border border-slate-100">
-              <div className="text-3xl font-bold text-[#1e40af] mb-2">10+</div>
+              <div className="text-3xl font-bold text-[#1e40af] mb-2">2</div>
               <div className="text-gray-700 font-medium">
-                Dedicated Staff Members
+                Appointive Staff
               </div>
             </div>
 
@@ -288,7 +291,7 @@ export default function AboutSection() {
               {/* Image caption */}
               <div className="mt-6 text-center">
                 <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                  Barangay Officials & Staff 2024
+                  Barangay Officials & Staff 2023–2026
                 </h4>
                 <p className="text-white/80 text-lg">
                   Together, building a stronger community for all
